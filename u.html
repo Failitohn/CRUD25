@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Update (Actualizar)</title>
+    <link rel="stylesheet" href="estilo.css">
+    <script>
+        function uing(){
+            return confirm("¿Desea agregar la comida?");
+        }
+    </script>
+</head>
+<body>
+    <form action="u.php" method="POST" accept-charset="utf-8" onsubmit="return uing();">
+           <a href="c.html">Crear</a>
+            <a href="r.html">Leer</a>
+            <a href="u.html">Actualizar</a>
+            <a href="d.html">Eliminar</a><br>
+            <br>
+
+        <label><strong>Actualizar de Comidas</strong></label>
+        <label>ID:</label>
+        <input type="text" name="idcomida" required pattern="\d+" title="Ingrese solo números enteros positivos"><br>
+
+        <label>Nombre:</label>
+        <input type="text" name="nombrecomida" required required pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+" title="Solo letras y espacios"><br>
+
+        <label>Descripción:</label>
+        <input type="text" name="descripcioncomida" required required pattern="[\s.,:;!?¡¿()-a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+" 
+           title="Solo letras, números, espacios y signos permitidos"><br>
+
+           <label>Precio:</label>
+        <input type="text" name="preciocomida" required pattern="\d+(\.\d{1,2})?" 
+           title="Número decimal positivo con hasta dos decimales"><br>
+
+        <button type="submit" id="actualizarcomida">Actualizar</button>
+
+         <?php
+        //obtenemos el valor del parametro
+        if (isset($_GET['msg'])){
+            echo htmlspecialchars($_GET['msg']);
+        }
+    ?>
+    </form>
+</body>
+</html>

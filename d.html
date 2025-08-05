@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Delete (Eliminar)</title>
+    <link rel="stylesheet" href="estilo.css">
+    <script>
+        function ding(){
+            return confirm("¿Desea eliminar la comida?");
+        }
+    </script>
+</head>
+<body>
+    <form action="d.php" method="POST" accept-charset="utf-8" onsubmit="return ding();">
+          <a href="c.html">Crear</a>
+            <a href="r.html">Leer</a>
+            <a href="u.html">Actualizar</a>
+            <a href="d.html">Eliminar</a><br>
+            <br>
+
+        <label><strong>Eliminar Comida</strong></label><br>
+
+        <label>ID:</label>
+        <input type="text" name="idcomida" pattern="\d+" title="Ingrese solo números enteros positivos"><br>
+
+        <button type="submit" id="eliminarcomida">Eliminar</button>
+
+        <?php
+        if (isset($_GET['msg'])){
+            echo htmlspecialchars($_GET['msg']);
+        }
+        ?>
+    </form>
+</body>
+</html>

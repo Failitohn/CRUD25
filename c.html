@@ -1,0 +1,48 @@
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Create (Crear)</title>
+        <link rel="stylesheet" href="estilo.css">
+        <script>
+            function cing(){
+                return confirm("¿Desea agregar la comida?");
+            }
+        </script>
+    </head>
+    <body>
+        <form action="c.php" method="POST" accept-charset="utf-8" onsubmit="return cing();">
+            <a href="c.html">Crear</a>
+            <a href="r.html">Leer</a>
+            <a href="u.html">Actualizar</a>
+            <a href="d.html">Eliminar</a><br>
+            <br>
+
+
+            <label><strong>Registro de Comidas</strong></label><br>
+
+            <label>ID:</label>
+            <input type="text" name="idcomida" required pattern="\d+" title="Ingrese solo números enteros positivos"><br>
+
+            <label>Nombre:</label>
+            <input type="text" name="nombrecomida" required pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+" title="Solo letras y espacios"><br>
+
+            <label>Descripción:</label>
+            <input type="text" name="descripcioncomida" required pattern="[\s.,:;!?¡¿()-a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+" 
+           title="Solo letras, números, espacios y signos permitidos"><br>
+
+            <label>Precio:</label>
+            <input type="text" name="preciocomida" required pattern="\d+(\.\d{1,2})?" 
+           title="Número decimal positivo con hasta dos decimales"><br>
+
+            <button type="submit" id="enviarcomida">Insertar</button>
+
+            <?php
+            if (isset($_GET['msg'])){
+                echo htmlspecialchars($_GET['msg']);
+            }
+            ?>
+        </form>
+    </body>
+    </html>

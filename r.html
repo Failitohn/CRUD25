@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Buscar Comida</title>
+    <link rel="stylesheet" href="estilo.css">
+    <script>
+        function ring() {
+            return confirm("¿Desea buscar la información sobre la comida?");
+        }
+    </script>
+</head>
+<body>
+    <form action="r.php" method="POST" accept-charset="utf-8" onsubmit="return ring();">
+           <a href="c.html">Crear</a>
+            <a href="r.html">Leer</a>
+            <a href="u.html">Actualizar</a>
+            <a href="d.html">Eliminar</a><br>
+            <br>
+            
+        <label><strong>Buscar Comida</strong></label><br>
+
+        <label for="idcomida">ID:</label>
+        <input type="text" name="idcomida" id="idcomida" pattern="\d+" title="Ingrese solo números enteros positivos"><br>
+
+        <button type="submit" id="buscarcomida">Buscar</button>
+    </form>
+</body>
+</html>
